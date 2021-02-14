@@ -1,4 +1,5 @@
-#Sparks Foundation Bank
+# Sparks Foundation Bank
+
 It is a basic banking system which is a part of the Sparks Foundation's Internship task.
 
 --Create a simple dynamic website which has the following specs:
