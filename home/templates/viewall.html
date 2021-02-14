@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<div style="text-align: center; font-size: 30px;">Information of all the Customers</div>
+<div style="top: 30px; position: relative;">
+    <table class="table table-bordered table-primary table-hover" style=" background-color: black; width: 100%; border: 5px solid rgb(255, 16, 16); padding: 5px;">
+        
+            <tr>
+                <th style="text-align: center; color:rgb(252, 241, 85);"> Sr No.</th>
+                <th style="text-align: center; color:rgb(252, 241, 85);" > Name</th> 
+                <th style="height: 25px; text-align: center; color:rgb(252, 241, 85);"> Account No.</th>
+                <th style="text-align: center; color:rgb(252, 241, 85);"> Email Id</th>
+                <th style="width: 150px; text-align: center; color:rgb(252, 241, 85);"> Account Balance</th>
+                <th style="text-align: center; color:rgb(252, 241, 85);"> Transfer Money</th>
+            </tr>
+
+
+        <tr>
+            {% for value in data %}
+            <td style="text-align: center; ; color: lime;">{{value.id}}</td>
+            <td style="text-align: center; color:lime;">{{value.name}}</td>
+            <td style="text-align: center; color:lime;">{{value.account}}</td>
+            <td style="text-align: center; color:lime;">{{value.email}}</td>
+            <td style="text-align: center; color:lime;"> ₹ {{value.balance}}</td>
+            <td style="text-align: center; color:lime;"> <a href="{% url 'transfer' %}"> Transfer </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br/>
+    <br/>
+</div>
+{% endblock %}

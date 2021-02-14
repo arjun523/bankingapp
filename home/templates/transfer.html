@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<div style="text-align: center; font-size: 30px;"> Transfer Money </div><br/>
+<form action="{% url 'transfer' %}" method="post">
+{% csrf_token %}
+{% if messages %}
+    {%for message in messages %}
+        <div class="alert alert-success">{{message}}</div>
+    {% endfor %}
+{% endif %}
+<table class="table table-bordered table-primary table-hover" style=" background-color: gray; width: 100%; border: 5px solid blueviolet; padding: 5px;">
+    <tr>
+        <td style="color: black;"> Sender Name: </td>
+        <td><select name="s_id" id="">
+            {% for i in data %}
+                <option style="color: black;" value="{{i.id}}">{{i.name}}</option>
+            
+            {% endfor %}
+        </select></td>
+    </tr>
+<tr>
+    <td style="color: black;""> Receiver Name:</td>
+    <td><select name="r_id" id="">
+            {% for i in data %}
+                {% if i.id != s_id %}
+                    <option style="color: black;" class="form-control" value="{{i.id}}">{{i.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select></td>
+</tr>
+<tr>
+    <td style="color: black;"> Transfer Amount:</td>
+    <td style="color: black;"> ₹ <input type="number" name="amount" id=""><br/></td>
+</tr>
+<tr>
+    <td></td>
+    <td><button style="color: rgb(255, 255, 255); border: 2px solid transparent; border-radius: 20px; background-image: linear-gradient(#df46be,#343b72); background-origin: border-box; -moz-background-clip: content-box,border-box;" type="submit">Transfer</button></td>
+</tr>
+</table>
+</form>
+<br/>
+{% endblock %}

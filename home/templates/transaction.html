@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+
+<div style="text-align: center; font-size: 30px;">Transaction History</div>
+<div style="top: 30px; position: relative;">
+    <table class="table table-bordered table-primary table-hover" style=" background-color: black; width: 100%; border: 5px solid rgb(255, 16, 16); padding: 5px;">
+        
+            <tr>
+                <th style="text-align: center; color:rgb(252, 241, 85);" >Serial No.</th> 
+                <th style="text-align: center; color:rgb(252, 241, 85);" >Sender Name</th> 
+                <th style="height: 25px; text-align: center; color:rgb(252, 241, 85);">Sender Account No.</th>
+                <th style="height: 25px; text-align: center; color:rgb(252, 241, 85);">Amount Transfered</th>
+                <th style="text-align: center; color:rgb(252, 241, 85);"> Receiver Name</th>
+                <th style="height: 25px; text-align: center; color:rgb(252, 241, 85);">Receiver Account No.</th>
+                <th style="width: 150px; text-align: center; color:rgb(252, 241, 85);">Receiver Updated Balance</th>
+                <th style="text-align: center; color:rgb(252, 241, 85);"> Transaction Status</th>
+            </tr>
+
+
+        <tr>
+            {% for value in data %}
+            <td style="text-align: center; color:lime;">{{value.id}}</td>
+            <td style="text-align: center; color:lime;">{{value.s_name}}</td>
+            <td style="text-align: center; color:lime;">{{value.s_account}}</td>
+            <td style="text-align: center; color:lime;"> ₹ {{value.amount_transfer}}</td>
+            <td style="text-align: center; color:lime;">{{value.r_name}}</td>
+            <td style="text-align: center; color:lime;">{{value.r_account}}</td>
+            <td style="text-align: center; color:lime;"> ₹ {{value.r_balance}}</td>
+            <td style="text-align: center; color:lime;">{{value.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br/>
+    <br/>
+</div>
+{% endblock %}
