@@ -10,4 +10,3 @@ It is a basic banking system which is a part of the Sparks Foundation's Internsh
 * Basic Banking Website to credit money between multiple users.
 * Only transfer of money between multiple users.
 * Host the website at OOOwebhost, github.io, heroku app.
-Gdhs
